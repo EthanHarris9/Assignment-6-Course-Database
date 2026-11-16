@@ -30,3 +30,16 @@ app.get('/api/courses/:id', (req, res) => {
     });
 })
 
+// POST a new course to the database
+app.post('/api/products', (req, res) => {
+    const {courseCode, title, credits, description, semester} = req.body;
+    db.run(`
+        INSERT INTO courses (courseCode, title, credits, description, semester)
+        VALUES (?, ?, ?, ?, ?)
+        `, [courseCode, title, credits, description, semester],
+        function(err) {
+            res.json({ id: this.lastID });
+        }
+    );
+});
+
