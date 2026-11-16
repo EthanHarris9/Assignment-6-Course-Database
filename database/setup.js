@@ -19,4 +19,4 @@ db.run(`
 
 console.log('courses table created')
 
-
+db.close();
