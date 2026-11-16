@@ -22,3 +22,11 @@ app.get('/api/courses', (req, res) => {
     });
 });
 
+// GET a single course by ID
+app.get('/api/courses/:id', (req, res) => {
+    const id = req.params.id;
+    db.all('SELECT * FROM courses WHERE id = ?', [id], (err, rows) => {
+        res.json(rows);
+    });
+})
+
