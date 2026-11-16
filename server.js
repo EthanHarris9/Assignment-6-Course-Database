@@ -4,6 +4,10 @@ const sqlite3 = require("sqlite3").verbose();
 const app = express();
 const port = 3000;
 
+app.listen(port, () => {
+    console.log(`Restaurant API server running at http://localhost:${port}/api`);
+});
+
 // Middleware
 app.use(express.json());
 
