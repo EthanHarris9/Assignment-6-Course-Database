@@ -43,7 +43,7 @@ app.post('/api/courses', (req, res) => {
     );
 });
 
-// PUT update existing course
+// PUT: update existing course in the database
 app.put('/api/courses/:id', (req, res) => {
     const id = req.params.id;
     const {courseCode, title, credits, description, semester
@@ -57,3 +57,12 @@ app.put('/api/courses/:id', (req, res) => {
     );
 });
 
+// DELETE: remove existing course in the database
+app.delete('/api/products/:id', (req, res) => {
+    const id = req.params.id;
+    db.run('DELETE FROM course WHERE id = ?', [id],
+        function(err) {
+            res.json({ message: 'Course deleted' });
+        }
+    );
+});
