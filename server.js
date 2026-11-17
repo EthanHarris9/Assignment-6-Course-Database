@@ -58,7 +58,7 @@ app.put('/api/courses/:id', (req, res) => {
 });
 
 // DELETE: remove existing course in the database
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/courses/:id', (req, res) => {
     const id = req.params.id;
     db.run('DELETE FROM course WHERE id = ?', [id],
         function(err) {
