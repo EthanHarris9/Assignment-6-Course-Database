@@ -49,7 +49,7 @@ app.put('/api/courses/:id', (req, res) => {
     const {courseCode, title, credits, description, semester
 } = req.body;
     db.run(`UPDATE courses SET courseCode = ?, title = ?, credits= ?, description = ?, semester = ? WHERE id = ?
-        `, [courseCode, title, credits, description, semester],
+        `, [courseCode, title, credits, description, semester, id],
         function(err) {
             res.json({ message: 'Course updated'
             });
