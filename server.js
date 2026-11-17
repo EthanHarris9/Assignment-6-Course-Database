@@ -43,3 +43,17 @@ app.post('/api/courses', (req, res) => {
     );
 });
 
+// PUT update existing course
+app.put('/api/courses/:id', (req, res) => {
+    const id = req.params.id;
+    const {courseCode, title, credits, description, semester
+} = req.body;
+    db.run(`UPDATE courses SET courseCode = ?, title = ?, credits= ?, description = ?, semester = ? WHERE id = ?
+        `, [courseCode, title, credits, description, semester],
+        function(err) {
+            res.json({ message: 'Course updated'
+            });
+        }
+    );
+});
+
