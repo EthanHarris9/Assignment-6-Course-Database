@@ -15,7 +15,7 @@ app.use(express.json());
 const db = new
 sqlite3.Database('./database/university.db');
 
-// GET all course
+// GET all courses
 app.get('/api/courses', (req, res) => {
     db.all('SELECT * FROM courses', (err, rows) => {
         res.json(rows);
